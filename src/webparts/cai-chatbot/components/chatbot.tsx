@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
 
 import { ChatbotPropsStorage } from './chatbotProps';
+import { constants } from '../const';
 import * as strings from 'ChatbotStrings';
 
 export default class Chatbot extends React.Component<ChatbotPropsStorage, object> {
@@ -48,7 +49,7 @@ export default class Chatbot extends React.Component<ChatbotPropsStorage, object
       <div className="ms-Fabric">
         <Placeholder
           iconName="ChatBot"
-          iconText="CAI Chatbot"
+          iconText={constants.placeholderIconText}
           description={strings.description}
           buttonLabel={strings.buttonConfigure}
           onConfigure={this._showDialog}

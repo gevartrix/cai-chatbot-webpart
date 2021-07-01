@@ -13,6 +13,7 @@ import {
 import { ChatbotWebPartOptions } from './chatbotWebpartProps';
 import { ChatbotPropertyPane } from './chatbotPropertyPane';
 import { ChatbotPropsStorage } from './components/chatbotProps';
+import { constants } from './const';
 import * as strings from 'ChatbotStrings';
 
 export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPartOptions> {
@@ -48,22 +49,22 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
    */
   private embedChatbot(): void {
     const scriptTag = document.createElement('script');
-    scriptTag.type = 'text/javascript';
+    scriptTag.type = constants.sTagType;
 
     if (this.properties.channel === 'webClient') {
       // If the 'SAP CAI Web Client' channel is chosen
-      scriptTag.src = 'https://cdn.cai.tools.sap/webclient/bootstrap.js';
-      scriptTag.id = 'cai-webchat-custom';
-      scriptTag.setAttribute('data-channel-id', this.properties.channelId);
-      scriptTag.setAttribute('data-token', this.properties.token);
-      scriptTag.setAttribute('data-expander-preferences', this.properties.expanderPreferences);
-      scriptTag.setAttribute('data-expander-type', 'CAI');
+      scriptTag.src = constants.sTagWebClientSrc;
+      scriptTag.id = constants.sTagWebClientId;
+      scriptTag.setAttribute(constants.sTagWebclientAttrChannelId, this.properties.channelId);
+      scriptTag.setAttribute(constants.sTagWebclientAttrToken, this.properties.token);
+      scriptTag.setAttribute(constants.sTagWebclientAttrEP, this.properties.expanderPreferences);
+      scriptTag.setAttribute(constants.sTagWebclientAttrET, constants.sTagWebClientET);
     } else {
       // If the 'Webchat' channel is chosen
-      scriptTag.src = 'https://cdn.cai.tools.sap/webchat/webchat.js';
-      scriptTag.id = 'cai-webchat';
-      scriptTag.setAttribute('channelId', this.properties.channelId);
-      scriptTag.setAttribute('token', this.properties.token);
+      scriptTag.src = constants.sTagWebchatSrc;
+      scriptTag.id = constants.sTagWebchatId;
+      scriptTag.setAttribute(constants.sTagWebchatAttrChannelId, this.properties.channelId);
+      scriptTag.setAttribute(constants.sTagWebchatAttrToken, this.properties.token);
     }
 
     document.body.appendChild(scriptTag);
@@ -78,11 +79,11 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
       resolve([
         {
           key: 'webchat',
-          text: 'Webchat',
+          text: constants.channelOptionsWebchat,
         },
         {
           key: 'webClient',
-          text: 'SAP CAI Web Client',
+          text: constants.channelOptionsWebClient,
         },
       ]);
     });
