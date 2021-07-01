@@ -136,11 +136,11 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
         selectedKey: 'webchat',
       }),
       PropertyPaneTextField('channelId', {
-        label: 'Channel ID',
+        label: strings.propertyPaneChannelId,
         value: this.properties.channelId,
       }),
       PropertyPaneTextField('token', {
-        label: 'Token',
+        label: strings.propertyPaneToken,
         value: this.properties.token,
       }),
     ];
@@ -148,7 +148,7 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
     // Add an extra option for the 'expanderPreferences' attribute
     if (this.properties.channel === 'webClient') {
       const epOption = PropertyPaneTextField('expanderPreferences', {
-        label: 'Expander Preferences',
+        label: strings.propertyPaneEP,
         value: this.properties.expanderPreferences,
       });
       options.push(epOption);

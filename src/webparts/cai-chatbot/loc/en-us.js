@@ -5,5 +5,8 @@ define([], function () {
     propertyPaneDescription:
       'Copy and paste your Conversational AI chatbot\'s credentials from the appropriate channel located under the "Connect" tab of your chatbot\'s repository.',
     propertyPaneSelect: 'Select a channel',
+    propertyPaneChannelId: 'Channel ID',
+    propertyPaneToken: 'Token',
+    propertyPaneEP: 'Expander Preferences',
   };
 });
