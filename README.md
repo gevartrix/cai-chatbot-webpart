@@ -22,7 +22,7 @@ A client-side web part for [Microsoft SharePoint Online](https://www.microsoft.c
   - [Installation](#installation)
     * [Disclaimer](#disclaimer)
     * [Prerequisites](#prerequisites)
-    * [Creating the .sppkg file](#creating-the-.sppkg-file)
+    * [Creating the .sppkg file](#creating-the-sppkg-file)
   - [Contributing](#contributing)
     * [Style Guide](#style-guide)
   - [License](#license)
@@ -66,7 +66,8 @@ The web part is also currently localized in two languages — English and Russia
     │   │       ├── chatbotPropertyPane.ts
     │   │       ├── chatbotWebpart.manifest.json
     │   │       ├── chatbotWebpart.ts
-    │   │       └── chatbotWebpartProps.ts
+    │   │       ├── chatbotWebpartProps.ts
+    │   │       └── const.ts
     │   └── index.ts
     ├── .eslintignore
     ├── .eslintrc.js
@@ -129,12 +130,7 @@ Finally, run the following package script
 npm run release
 ```
 
-to generate the `cai-chatbot.sppkg` file inside the `sharepoint\solution\` folder. The package script executes several `gulp` commands:
-```bat
-gulp build
-gulp bundle --ship
-gulp package-solution --ship
-```
+to generate the `cai-chatbot.sppkg` file inside the `sharepoint\solution\` folder. That script executes several `gulp` commands, please check the [package.json](package.json) file for more details.
 
 Once the `.sppkg` file has been compiled, you can upload it to your site's App Catalog, and the web part should appear in the "Edit" mode.
 
