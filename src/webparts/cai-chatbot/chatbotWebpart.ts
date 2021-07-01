@@ -48,22 +48,22 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
    */
   private embedChatbot(): void {
     const scriptTag = document.createElement('script');
-    // These attributes stay the same for both channels
     scriptTag.type = 'text/javascript';
-    scriptTag.src = this.properties.url;
 
     if (this.properties.channel === 'webClient') {
       // If the 'SAP CAI Web Client' channel is chosen
+      scriptTag.src = 'https://cdn.cai.tools.sap/webclient/bootstrap.js';
+      scriptTag.id = 'cai-webchat-custom';
       scriptTag.setAttribute('data-channel-id', this.properties.channelId);
       scriptTag.setAttribute('data-token', this.properties.token);
       scriptTag.setAttribute('data-expander-preferences', this.properties.expanderPreferences);
       scriptTag.setAttribute('data-expander-type', 'CAI');
-      scriptTag.id = 'cai-webchat-custom';
     } else {
       // If the 'Webchat' channel is chosen
+      scriptTag.src = 'https://cdn.cai.tools.sap/webchat/webchat.js';
+      scriptTag.id = 'cai-webchat';
       scriptTag.setAttribute('channelId', this.properties.channelId);
       scriptTag.setAttribute('token', this.properties.token);
-      scriptTag.id = 'cai-webchat';
     }
 
     document.body.appendChild(scriptTag);
@@ -113,7 +113,6 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
 
     const element: React.ReactElement<ChatbotPropsStorage> = React.createElement(configPanel.default, {
       channel: this.properties.channel,
-      url: this.properties.url,
       channelId: this.properties.channelId,
       token: this.properties.token,
       expanderPreferences: this.properties.expanderPreferences,
@@ -134,10 +133,6 @@ export default class ChatbotWebPart extends BaseClientSideWebPart<ChatbotWebPart
         label: strings.propertyPaneSelect,
         options: this.channels,
         selectedKey: 'webchat',
-      }),
-      PropertyPaneTextField('url', {
-        label: 'URL',
-        value: this.properties.url,
       }),
       PropertyPaneTextField('channelId', {
         label: 'Channel ID',

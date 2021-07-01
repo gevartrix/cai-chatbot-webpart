@@ -25,7 +25,6 @@ export default class Chatbot extends React.Component<ChatbotPropsStorage, object
   public componentDidMount(): void {
     this.setState({
       channel: this.props.channel,
-      url: this.props.url,
       channelId: this.props.channelId,
       token: this.props.token,
       expanderPreferences: this.props.expanderPreferences,
