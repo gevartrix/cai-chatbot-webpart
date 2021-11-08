@@ -6,7 +6,7 @@
 
 # CAI Chatbot web part
 
-[![spo](https://img.shields.io/badge/SharePoint-Online-important.svg?style=flat-square)](https://www.microsoft.com/en-ww/microsoft-365/sharepoint/collaboration) [![spfx](https://img.shields.io/badge/SPFx-1.12.1-green.svg?style=flat-square)](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview) [![node](https://img.shields.io/badge/Node.js-%5E14.17.1%20LTS-brihtgreen.svg?style=flat-square)](https://nodejs.org/) [![ts](https://img.shields.io/badge/TypeScript-%5E3.7.7-brihtgreen.svg?style=flat-square)](https://www.typescriptlang.org/) [![gulp](https://img.shields.io/badge/gulp.js-%5E4.0.2-brihtgreen.svg?style=flat-square)](https://gulpjs.org/)
+[![spo](https://img.shields.io/badge/SharePoint-Online-important.svg?style=flat-square)](https://www.microsoft.com/en-ww/microsoft-365/sharepoint/collaboration) [![spfx](https://img.shields.io/badge/SPFx-1.13-green.svg?style=flat-square)](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview) [![node](https://img.shields.io/badge/Node.js-LTS%20v14-brihtgreen.svg?style=flat-square)](https://nodejs.org/) [![ts](https://img.shields.io/badge/TypeScript-%5E3.7.7-brihtgreen.svg?style=flat-square)](https://www.typescriptlang.org/) [![gulp](https://img.shields.io/badge/gulp.js-%5E4.0.2-brihtgreen.svg?style=flat-square)](https://gulpjs.org/)
 
 A client-side web part for [Microsoft SharePoint Online](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) sites that integrates [SAP Conversational AI](https://cai.tools.sap/) chatbots on a SharePoint page.
 
@@ -103,7 +103,7 @@ Before proceeding, please ensure that all of the following conditions are met:
 
 - Your SAP Conversational AI chatbot is configured, and either the Webchat or the SAP CAI Web Client channel is created for the chatbot
 - An [App Catalog](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog) has been added to your SharePoint site, and you've got the [permission](https://docs.microsoft.com/en-us/sharepoint/request-app-installation-permissions) to upload a custom web part
-- [Node.js 14.17.1 LTS or later](https://nodejs.org/en/download/) is installed on your system.
+- [Node.js LTS v14](https://nodejs.org/download/release/v14.18.1/)[^nodeversion] is installed on your system.
 
 ### Creating the .sppkg file
 
@@ -161,3 +161,5 @@ npm run lint
 ## License
 
 [MIT](LICENSE).
+
+[^nodeversion]: Please refer to the [SPFx requirements page](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-development-environment#install-nodejs) to check the current latest supported version of Node.js. You may want to use a version management tool like [nvm](https://github.com/coreybutler/nvm-windows) to install the required LTS version along with your current Node.js installation.
